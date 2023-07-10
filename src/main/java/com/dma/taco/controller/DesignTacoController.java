@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dma.taco.entity.Ingredient;
@@ -48,5 +49,13 @@ public class DesignTacoController {
 	private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
 		
 		return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
+	}
+	
+	@PostMapping
+	public String processDesign(Taco taco) {
+
+		log.info("Processing taco: " + taco);
+		
+		return "redirect:/orders/current";
 	}
 }
