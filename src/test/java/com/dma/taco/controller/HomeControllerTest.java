@@ -1,6 +1,8 @@
 package com.dma.taco.controller;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -19,7 +21,8 @@ class HomeControllerTest {
 	void testHome() throws Exception {
 		mockMvc.perform(get("/"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("home"));
+		.andExpect(view().name("home"))
+		.andExpect(content().string(containsString("Welcome to...")));
 	}
 
 }
