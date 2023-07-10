@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dma.taco.entity.Ingredient;
 import com.dma.taco.entity.Ingredient.Type;
+import com.dma.taco.entity.Taco;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +40,7 @@ public class DesignTacoController {
 			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
 		}
 		
-		model.addAttribute("design", new Object());
+		model.addAttribute("design", new Taco());
 
 		return "design";
 	}
