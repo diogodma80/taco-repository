@@ -1,15 +1,19 @@
 package com.dma.taco.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import lombok.Data;
 
 @Data
+@Entity
 public class Ingredient {
 
-	  private final String id;
-	  private final String name;
-	  private final Type type;
-	  
-	  public static enum Type {
-	    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
-	  }
+	@Id
+	private final String id;
+	private final String name;
+	private final String kind;
+
+
+	
 }

@@ -1,0 +1,10 @@
+insert into ingredient (id, name, kind) values ('FLTO', 'Flour Tortilla', 'WRAP');
+insert into ingredient (id, name, kind) values ('COTO', 'Corn Tortilla', 'WRAP');
+insert into ingredient (id, name, kind) values ('GRBF', 'Ground Beef', 'PROTEIN');
+insert into ingredient (id, name, kind) values ('CARN', 'Carnitas', 'PROTEIN');
+insert into ingredient (id, name, kind) values ('TMTO', 'Diced Tomatoes', 'VEGGIES');
+insert into ingredient (id, name, kind) values ('LETC', 'Lettuce', 'VEGGIES');
+insert into ingredient (id, name, kind) values ('CHED', 'Cheddar', 'CHEESE');
+insert into ingredient (id, name, kind) values ('JACK', 'Monterrey Jack', 'CHEESE');
+insert into ingredient (id, name, kind) values ('SLSA', 'Salsa', 'SAUCE');
+insert into ingredient (id, name, kind) values ('SRCR', 'Sour Cream', 'SAUCE');

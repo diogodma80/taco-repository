@@ -1,9 +1,5 @@
 package com.dma.taco.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dma.taco.dao.IngredientRepository;
-import com.dma.taco.entity.Ingredient;
-import com.dma.taco.entity.Ingredient.Type;
 import com.dma.taco.entity.Taco;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,24 +37,24 @@ public class DesignTacoController {
 				new Ingredient("SLSA", "Salsa", Type.SAUCE), 
 				new Ingredient("SRCR", "Sour Cream", Type.SAUCE));*/
 		
-		List<Ingredient> ingredients = new ArrayList<>();
-		ingredientRepository.findAll().forEach(i -> ingredients.add(i));
-		
-		Type[] types = Ingredient.Type.values();
-		
-		for(Type type : types) {
-			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
-		}
+//		List<Ingredient> ingredients = new ArrayList<>();
+//		ingredientRepository.findAll().forEach(i -> ingredients.add(i));
+//		
+//		Kind[] types = Ingredient.Kind.values();
+//		
+//		for(Kind type : types) {
+//			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
+//		}
 		
 		model.addAttribute("design", new Taco());
 
 		return "design";
 	}
 
-	private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-		
-		return ingredients.stream().filter(x -> x.getType().equals(type)).collect(Collectors.toList());
-	}
+//	private List<Ingredient> filterByType(List<Ingredient> ingredients, Kind type) {
+//		
+//		return ingredients.stream().filter(x -> x.getKind().equals(type)).collect(Collectors.toList());
+//	}
 	
 	@PostMapping
 	public String processDesign(@Valid Taco taco, Errors errors) {
